@@ -3,15 +3,15 @@ package Lab1;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Combiner extends Thread {
-    BoundedBufferMonitor<Film> toCombiner;
+    BoundedBufferRegion<Film> toCombiner;
     BarrierMonitor fromConsumer;
     BarrierMonitor waitForCombiner;
     BarrierMonitor signalPrinter;
     ConcurrentHashMap<Long,Integer> map;
-    BoundedBufferMonitor<Film> toPrinter;
+    BoundedBufferRegion<Film> toPrinter;
 
 
-    public Combiner(BoundedBufferMonitor<Film> toCombiner, BarrierMonitor fromConsumer, BarrierMonitor waitForCombiner, ConcurrentHashMap<Long, Integer> map,BoundedBufferMonitor<Film> toPr,BarrierMonitor sig) {
+    public Combiner(BoundedBufferRegion<Film> toCombiner, BarrierMonitor fromConsumer, BarrierMonitor waitForCombiner, ConcurrentHashMap<Long, Integer> map,BoundedBufferRegion<Film> toPr,BarrierMonitor sig) {
         this.toCombiner = toCombiner;
         this.fromConsumer = fromConsumer;
         this.waitForCombiner = waitForCombiner;

@@ -3,6 +3,7 @@ package Lab2;
 import Lab1.BarrierMonitor;
 
 import java.util.HashMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Printer extends  Thread{
@@ -28,7 +29,7 @@ public class Printer extends  Thread{
                 System.out.println("Consumer " + key + " has proccessed  " + statistics.get(key) + " people.");
             }
             HashMap<Integer,Integer> decades = toPrinter.get();
-            for(Integer key : decades.keySet()){
+            for(Integer key : new TreeSet<>(decades.keySet())){
                 int val = decades.get(key);
                 System.out.println("In the " + key + "-" + (key+9) + " ," + val + " people were born." );
             }

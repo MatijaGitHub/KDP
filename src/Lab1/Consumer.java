@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Consumer extends Thread{
-    BoundedBufferMonitor<Film> buff;
-    BoundedBufferMonitor<Film> toCombiner;
+    BoundedBufferRegion<Film> buff;
+    BoundedBufferRegion<Film> toCombiner;
     BarrierMonitor barr;
     ArrayList<Film> localMaxFilms;
     ConcurrentHashMap<Long,Integer> progress;
@@ -16,7 +16,7 @@ public class Consumer extends Thread{
     static int globalMax;
     BarrierMonitor waitForCombiner;
     ConcurrentHashMap<Long,Integer> map;
-    Consumer(int k,BoundedBufferMonitor<Film> buffer, BarrierMonitor bar, ConcurrentHashMap<Long,Integer> localMaxs,BarrierMonitor waitForCombiner,BoundedBufferMonitor<Film> cmb,ConcurrentHashMap<Long,Integer> prog){
+    Consumer(int k,BoundedBufferRegion<Film> buffer, BarrierMonitor bar, ConcurrentHashMap<Long,Integer> localMaxs,BarrierMonitor waitForCombiner,BoundedBufferRegion<Film> cmb,ConcurrentHashMap<Long,Integer> prog){
         progress = prog;
         toCombiner = cmb;
         buff = buffer;

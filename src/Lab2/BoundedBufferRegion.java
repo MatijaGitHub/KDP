@@ -6,7 +6,7 @@ public class BoundedBufferRegion<T> {
     int tail;
     int head;
     final T[] buffer;
-    BoundedBufferRegion(int n){
+    public BoundedBufferRegion(int n){
         this.N = n;
         size = 0;
         tail = 0;

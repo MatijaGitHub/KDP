@@ -7,9 +7,9 @@ public class Test {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        BoundedBufferMonitor<Film> produced = new BoundedBufferMonitor<>();
-        BoundedBufferMonitor<Film> toCombiner = new BoundedBufferMonitor<>();
-        BoundedBufferMonitor<Film> toPrinter = new BoundedBufferMonitor<>();
+        BoundedBufferRegion<Film> produced = new BoundedBufferRegion();
+        BoundedBufferRegion<Film> toCombiner = new BoundedBufferRegion<>();
+        BoundedBufferRegion<Film> toPrinter = new BoundedBufferRegion<>();
         BarrierMonitor consumerBarr = new BarrierMonitor(10);
         BarrierMonitor combinerBarr = new BarrierMonitor(1);
         BarrierMonitor signalPrinter = new BarrierMonitor(1);

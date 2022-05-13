@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Producer extends Thread{
     Scanner sc;
-    BoundedBufferMonitor<Film> buff;
-    Producer(BoundedBufferMonitor<Film> buffer) throws FileNotFoundException {
+    BoundedBufferRegion<Film> buff;
+    Producer(BoundedBufferRegion<Film> buffer) throws FileNotFoundException {
         File input = new File("data1.tsv");
         sc = new Scanner(input);
         buff = buffer;

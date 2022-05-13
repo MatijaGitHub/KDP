@@ -6,10 +6,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Printer extends Thread{
     int N;
     ConcurrentHashMap<Long,Integer> stats;
-    BoundedBufferMonitor<Film> toPrinter;
+    BoundedBufferRegion<Film> toPrinter;
     BarrierMonitor signalPrinter;
 
-    public Printer(int n, BoundedBufferMonitor<Film> toPrinter, BarrierMonitor signalPrinter,ConcurrentHashMap<Long,Integer> s) {
+    public Printer(int n, BoundedBufferRegion<Film> toPrinter, BarrierMonitor signalPrinter,ConcurrentHashMap<Long,Integer> s) {
         N = n;
         this.toPrinter = toPrinter;
         this.signalPrinter = signalPrinter;
